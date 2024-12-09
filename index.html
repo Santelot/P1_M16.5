@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P1-M16.5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .activity {
+            margin-bottom: 20px;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s;
+        }
+        .banner:hover {
+            background-color: #45a049;
+        }
+        .banner hr {
+            border: none;
+            border-top: 1px solid white;
+            margin: 5px 0;
+        }
+        .subtitle {
+            font-size: 0.9em;
+            color: #e0e0e0;
+        }
+        .content {
+            display: none;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            const selectedTime = document.getElementById('class-time').value;
+
+            const activity2 = document.getElementById('activity-2');
+            const activity4Step6 = document.getElementById('activity-4-step-6');
+            const activity4Step7 = document.getElementById('activity-4-step-7');
+
+            // Restaurar visibilidad predeterminada
+            if (activity2) activity2.style.display = "block";
+            if (activity4Step6) activity4Step6.style.display = "table-row";
+            if (activity4Step7) activity4Step7.style.display = "table-row";
+
+            // Aplicar lógica según el tiempo seleccionado
+            if (selectedTime === '45') {
+                if (activity2) activity2.style.display = "none";
+            } else if (selectedTime === '40') {
+                if (activity2) activity2.style.display = "none";
+                if (activity4Step6) activity4Step6.style.display = "none";
+                if (activity4Step7) activity4Step7.style.display = "none";
+            }
+            
+            // Actualizar el título dinámico de la clase
+            document.getElementById('selected-time').innerText = `Tiempo efectivo de clase: ${selectedTime} minutos`;
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        Playbook-P1-M16.5
+    </div>
+
+    <div class="container">
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+        
+        <!-- Actividad 0 -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('activity_0_content')">
+        <div class="title">🔍 Actividad 0: Revisión de Misión</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Preparar dispositivos, materiales y organizar el espacio antes de comenzar la misión.</div>
+    </div>
+    <div id="activity_0_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la diapositiva 1 "Revisión de Misión" y verificar que:
+                    <ul>
+                        <li>Los dispositivos están encendidos y tienen acceso a Scratch Jr.</li>
+                        <li>Las magic tablets y otros materiales están disponibles.</li>
+                        <li>El espacio de trabajo está organizado.</li>
+                    </ul>
+                </td>
+                <td>N/A</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('activity_1_content')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Inicio de la clase con energía y motivación para los estudiantes.</div>
+    </div>
+    <div id="activity_1_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la diapositiva 2 "¡Bienvenidos, Genios!". Saludar a los estudiantes con entusiasmo y energía.
+                </td>
+                <td>
+                    "¡Hola, Genios! 🌟 ¿Listos para una nueva aventura? Hoy aprenderemos a usar bloques de sonido en Scratch Jr. ¡Va a ser súper divertido!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la diapositiva 3 "¿Cómo se sienten hoy?" con opciones visuales de poses (Superestrella y Pensador). Pedir que representen cómo se sienten usando estas poses.
+                </td>
+                <td>
+                    "¡Genios! Muéstrenme cómo se sienten hoy. Si están llenos de energía, hagan la Pose de Superestrella (brazos abiertos hacia arriba como celebrando). Si sienten curiosidad, hagan la Pose de Pensador (mano en la barbilla, como si estuvieran pensando en algo interesante). ¡Muéstrenme sus poses!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 3:</strong> Proyectar la diapositiva 4 "Ritual de Agradecimiento". Guiar a los estudiantes para realizar el ritual en conjunto.
+                </td>
+                <td>
+                    "Ahora todos juntos, juntemos nuestras manos y digamos: '¡Gracias por estar aquí, Genios! Hoy aprenderemos, crearemos y nos divertiremos juntos. ¡A por ello!'"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 4:</strong> Proyectar la diapositiva 5 "Objetivos de la Misión". Enumerar los objetivos de la misión en un formato claro y motivador.
+                </td>
+                <td>
+                    "Hoy tenemos tres grandes objetivos:
+                    <ol>
+                        <li>Usar los bloques de sonido en Scratch Jr. para agregar efectos sonoros a nuestras animaciones.</li>
+                        <li>Diseñar animaciones creativas con personajes que se mueven y emiten sonidos.</li>
+                        <li>Compartir y reflexionar sobre nuestras animaciones en equipo para aprender juntos. ¡Será un día genial!</li>
+                    </ol>"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('activity_2_content')">
+        <div class="title">🧠 Actividad 2: Brain Vitamin</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Ejercicio breve para despejar la mente y fomentar la creatividad antes de iniciar la misión.</div>
+    </div>
+    <div id="activity_2_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la diapositiva 6 "Brain Vitamin: ¡Activa tu Mente!". Introducir brevemente el propósito de la actividad.
+                </td>
+                <td>
+                    "¡Es momento del Brain Vitamin! Genios, esta actividad nos ayudará a despejar la mente, relajarnos y prepararnos para nuestra misión. ¿Listos para comenzar?"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la diapositiva 7 "Respira y Activa tu Mente". Guiar a los estudiantes para realizar una respiración profunda siguiendo las instrucciones en pantalla (inhalar 4, sostener 4, exhalar 4).
+                </td>
+                <td>
+                    "Vamos a preparar nuestras mentes con un ejercicio de respiración. Inhalen profundamente contando hasta 4... sostengan el aire por 4... y ahora exhalen lentamente contando hasta 4. ¡Excelente! Vamos a repetirlo una vez más."
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 3:</strong> Proyectar la diapositiva 8 "Sonidos y Gestos". Pedir a los estudiantes que respondan con gestos asociados a los sonidos reproducidos: por ejemplo, levantar ambas manos al escuchar "Pop", tocarse la nariz al escuchar "Clap", o girar sobre sí mismos al escuchar "Crash".
+                </td>
+                <td>
+                    "¡Escuchen atentamente, Genios! Vamos a asociar sonidos con gestos. Si escuchan 'Pop', levanten ambas manos como si celebraran. Si escuchan 'Clap', tóquense la nariz. Y si escuchan 'Crash', giren sobre sí mismos. ¡Vamos a ver quién puede seguir la secuencia sin errores!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('activity_3_content')">
+        <div class="title">🚀 Actividad 3: Challenge</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Explorar trayectorias, giros y sonidos en Scratch Jr. mediante retos escalonados.</div>
+    </div>
+    <div id="activity_3_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la diapositiva 9 "¡Hora del Desafío!". Explicar a los estudiantes que trabajarán en retos relacionados con trayectorias, giros y sonidos.
+                </td>
+                <td>
+                    "¡Genios, llegó el momento del desafío del día! Hoy exploraremos trayectorias y giros, y combinaremos sonidos en nuestras animaciones. Tendrán tres niveles de reto: desde giros básicos hasta trayectorias complejas con varios personajes. ¿Listos para saber más?"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la diapositiva 10 "Niveles del Desafío". Explicar claramente los objetivos, instrucciones, condiciones, y un consejo útil para cada nivel.
+                </td>
+                <td>
+                    "Nivel Rookie (Fácil): Diseña una animación donde el personaje avance, gire y emita un sonido ‘Pop’ al detenerse.
+                    <ul>
+                        <li><strong>Objetivo:</strong> Aprender a combinar movimientos simples con sonidos básicos.</li>
+                        <li><strong>Instrucciones:</strong> Crea una animación donde el personaje avance, gire y termine con un sonido.</li>
+                        <li><strong>Condiciones:</strong> Usa un bloque de movimiento, un bloque de giro y un bloque de sonido ‘Pop’.</li>
+                        <li><strong>Consejo:</strong> Experimenta con giros hacia diferentes direcciones para agregar variedad.</li>
+                    </ul>
+                    Nivel Master (Intermedio): Diseña una animación donde el personaje siga una trayectoria circular y emita un sonido en cada giro.
+                    <ul>
+                        <li><strong>Objetivo:</strong> Explorar trayectorias más avanzadas combinando giros y sonidos repetidos.</li>
+                        <li><strong>Instrucciones:</strong> Programa al personaje para que avance y gire repetidamente, añadiendo un sonido después de cada giro.</li>
+                        <li><strong>Condiciones:</strong> Usa bloques de movimiento, bloques de giro, y al menos tres bloques de sonido distintos.</li>
+                        <li><strong>Consejo:</strong> Ajusta los ángulos de los giros para que la trayectoria sea más precisa.</li>
+                    </ul>
+                    Nivel Hacker (Difícil): Diseña una animación donde dos personajes sigan trayectorias opuestas y emitan sonidos al cruzarse.
+                    <ul>
+                        <li><strong>Objetivo:</strong> Sincronizar movimientos complejos entre dos personajes.</li>
+                        <li><strong>Instrucciones:</strong> Programa a un personaje para que siga una trayectoria circular, y al otro para que realice un zigzag. Asegúrate de añadir sonidos cuando se crucen.</li>
+                        <li><strong>Condiciones:</strong> Usa al menos dos personajes con trayectorias diferentes, y sonidos en los puntos de cruce.</li>
+                        <li><strong>Consejo:</strong> Practica el momento del cruce para que sea preciso y sincronizado.</li>
+                    </ul>"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 3:</strong> Proyectar la diapositiva 11 "Manos a la Obra". Supervisar a los estudiantes mientras trabajan, ayudándolos a cumplir las condiciones y a resolver dudas.
+                </td>
+                <td>
+                    "¡Es su turno, Genios! Elijan su nivel:
+                    <ul>
+                        <li>Si eligieron Rookie, trabajen en una animación donde el personaje avance, gire y termine con un sonido ‘Pop’.</li>
+                        <li>Si son Master, creen una trayectoria circular donde el personaje emita sonidos en cada giro.</li>
+                        <li>Para los valientes de Hacker, programen dos personajes con trayectorias opuestas y sonidos sincronizados al cruzarse. ¡Demuestren lo que pueden lograr!</li>
+                    </ul>"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 4:</strong> Proyectar la diapositiva 12 "Reflexionemos Juntos". Facilitar que los estudiantes muestren sus proyectos y expliquen cómo lograron cumplir con las condiciones de cada nivel.
+                </td>
+                <td>
+                    "¡Qué genial trabajo, Genios! Vamos a compartir nuestras creaciones:
+                    <ul>
+                        <li>Si trabajaron en Rookie, cuéntenos cómo lograron que el personaje girara y emitiera un sonido.</li>
+                        <li>Los de Master, expliquen cómo sincronizaron una trayectoria circular con sonidos en cada giro.</li>
+                        <li>Y los de Hacker, muestren cómo lograron coordinar dos personajes con movimientos opuestos y sonidos sincronizados. ¿Qué aprendieron hoy?</li>
+                    </ul>"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('activity_4_content')">
+        <div class="title">🤝 Actividad 4: Team Gnius</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Colaboración en equipo para revisar y mejorar los proyectos de Scratch Jr.</div>
+    </div>
+    <div id="activity_4_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la diapositiva 13 "Formación de Equipos". Pedir a los estudiantes que formen equipos con compañeros cercanos para realizar la actividad.
+                </td>
+                <td>
+                    "¡Genios, ahora trabajaremos en equipo! Formen equipos de dos o tres personas con compañeros cercanos. Este será su grupo para revisar y mejorar sus proyectos. ¡Vamos a demostrar el poder del trabajo en equipo!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la diapositiva 14 "Organización de Equipos". Usar un temporizador de 30 segundos para que los estudiantes encuentren compañeros y se organicen.
+                </td>
+                <td>
+                    "Tienen 30 segundos para encontrar un compañero y organizarse en equipos. ¡Busquen a alguien cercano con quien puedan colaborar y prepárense para trabajar juntos!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 3:</strong> Proyectar la diapositiva 15 "Recoge tu Magic Tablet". Pedir a los estudiantes que recojan una Magic Tablet del área asignada en un límite de 30 segundos.
+                </td>
+                <td>
+                    "¡Genios, ahora vamos a recoger nuestras Magic Tablets! Cada uno de ustedes necesitará una para tomar notas importantes durante el trabajo en equipo. Tienen 30 segundos para recogerlas y regresar a su lugar. ¡Rápido pero organizado!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 4:</strong> Proyectar la diapositiva 16 "Revisión en Equipo". Pedir a los estudiantes que observen los proyectos de sus compañeros y respondan a preguntas clave para proporcionar retroalimentación.
+                </td>
+                <td>
+                    "Revisemos juntos los proyectos de nuestro equipo. Hagan preguntas como:
+                    <ul>
+                        <li>¿Qué nivel completaste?</li>
+                        <li>¿Qué fue lo más fácil o difícil?</li>
+                        <li>¿Qué mejorarías?</li>
+                    </ul>
+                    Recuerden, dar retroalimentación constructiva nos ayuda a aprender más."
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 5:</strong> Proyectar la diapositiva 17 "Turno de Maestro". Dar tiempo para que cada estudiante explique su proyecto a su compañero mientras el otro escucha y formula preguntas. Luego, alternar roles.
+                </td>
+                <td>
+                    "¡Es su turno, Genios! Uno será el maestro y explicará su proyecto al equipo: cómo lo hizo, qué bloques usó y qué aprendió. El aprendiz escuchará y hará preguntas. Cuando terminen, cambien de roles. ¡Aprender enseñando es muy divertido!"
+                </td>
+            </tr>
+            <tr id="activity-4-step-6">
+                <td>
+                    <strong>Paso 6:</strong> Proyectar la diapositiva 18 "Mejora en Equipo". Dar tiempo a los equipos para trabajar juntos en los ajustes sugeridos durante la revisión.
+                </td>
+                <td>
+                    "¡Ahora es el momento de mejorar! Tomen las ideas que compartieron y hagan ajustes en sus proyectos. ¡Recuerden, siempre podemos hacerlo mejor trabajando juntos!"
+                </td>
+            </tr>
+            <tr id="activity-4-step-7">
+                <td>
+                    <strong>Paso 7:</strong> Proyectar la diapositiva 19 "Reflexión en Equipo". Facilitar preguntas como:
+                    <ul>
+                        <li>¿Qué aprendiste de tu compañero?</li>
+                        <li>¿Qué fue lo mejor de trabajar juntos?</li>
+                        <li>¿Cómo se sintieron al compartir ideas?</li>
+                    </ul>
+                </td>
+                <td>
+                    "Genios, reflexionemos sobre lo que aprendimos trabajando juntos. Cuéntenme:
+                    <ul>
+                        <li>¿Qué aprendieron de su compañero?</li>
+                        <li>¿Qué fue lo mejor de colaborar?</li>
+                        <li>¿Cómo se sintieron al compartir ideas?</li>
+                    </ul>
+                    ¡Recuerden que el aprendizaje compartido es un superpoder!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('activity_5_content')">
+        <div class="title">🏅 Actividad 5: Honor the Lab</div>
+        <hr style="border: none; border-top: 1px solid white; margin: 5px 0;">
+        <div class="subtitle">Reflexión final y organización del espacio de trabajo.</div>
+    </div>
+    <div id="activity_5_content" class="content">
+        <table>
+            <tr style="background-color: #f4f4f4;">
+                <th>Acción</th>
+                <th>Diálogo Maestro</th>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 1:</strong> Proyectar la diapositiva 30 "Revisión de Objetivos". Guiar a los estudiantes en una breve reflexión grupal sobre lo aprendido y logrado durante la clase.
+                </td>
+                <td>
+                    "¡Genios, qué increíble trabajo hicieron hoy! Reflexionemos juntos: ¿Logramos los objetivos que nos propusimos al inicio?
+                    <ul>
+                        <li>Usar bloques de sonido.</li>
+                        <li>Crear animaciones con personajes.</li>
+                        <li>Trabajar en equipo.</li>
+                    </ul>
+                    ¡Lo lograron de manera brillante!"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Paso 2:</strong> Proyectar la diapositiva 21 "Organización del Espacio". Pedir a los estudiantes que devuelvan los materiales (Magic Tablets, bloques, etc.) a su lugar correspondiente. Supervisar mientras lo hacen.
+                </td>
+                <td>
+                    "Genios, ahora vamos a honrar nuestro espacio de trabajo. Por favor, devuelvan las Magic Tablets, los bloques y cualquier otro material que usaron. Asegurémonos de que el aula quede tan limpia y ordenada como la encontramos. ¡Gracias por su ayuda y compromiso!"
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+        
+    </div> <!-- Cierre del container -->
+</body>
+</html>
